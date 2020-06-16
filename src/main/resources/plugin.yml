@@ -1,0 +1,18 @@
+name: ${project.name}
+version: ${project.version}
+main: ${project.groupId}.${project.artifactId}
+api-version: 1.15
+authors: [Gimme]
+description: ${project.description}
+depend: [GimmeCore]
+softdepend: [ProtocolLib, EssentialsXSpawn, Vault]
+
+commands:
+  logout:
+    description: Safely log out
+    permission: gimmebalance.logout
+
+permissions:
+  gimmebalance.logout:
+    description: Allows using the logout command
+    default: true

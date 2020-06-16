@@ -1,0 +1,21 @@
+scoreboard-timer-title-combat: "&6Combat: &e"
+
+header-scoreboard-timers: "&7----------"
+
+error-in-combat: "&cYou cannot do that while in combat"
+
+killed-while-offline: "&cSomeone killed you while you where offline"
+
+logout:
+  logging-out-title: "&eLogging out in &6%time%"
+  logging-out: "&eLogging out in %n%s (don't move)..."
+  canceled-by-movement: "&cCanceled by movement!"
+  canceled-by-damage: "&cCanceled by damage!"
+  safely-logged-out: "Safely logged out"
+
+action-bar:
+  combat-timer-start: "&4You are now in combat"
+  combat-timer-end: "&2You are no longer in combat"
+  item-on-cooldown: "&cOn cooldown"
+  item-disabled: "&cYou cannot use that item"
+  enchantment-restricted: "&cEnchantment restricted"

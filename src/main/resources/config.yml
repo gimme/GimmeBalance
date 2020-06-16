@@ -1,0 +1,246 @@
+combat:
+  # How many seconds you are considered "in combat" after taking damage from another player.
+  timer: 0
+  # The only commands that can be used while in combat.
+  #
+  # Note: Remember to include all aliases for the commands. All commands that start with one of the commands defined
+  # below are included with it (e.g. "/f" would cover all faction commands).
+  command-whitelist:
+  # Commands that you cannot use while in combat.
+  #
+  # Note: the blacklist is only active if it is NOT empty and if the whitelist IS empty.
+  command-blacklist:
+    #- /f home
+    #- /f leave
+    #- /f disband
+    #- /spawn
+  # If players in combat can break blocks.
+  block-break-disabled: true
+  # If players in combat can place blocks.
+  block-place-disabled: true
+  # If players in combat can use end portals.
+  portal-end-disabled: true
+  # If players in combat can use nether portals.
+  portal-nether-disabled: true
+
+  combat-log:
+    npc:
+      # If a dummy NPC should be spawned after a player logs out that counts as the player when killing it.
+      #
+      # If this is set to false, nothing below matters.
+      enabled: false
+      # Delay in seconds until the spawned NPC disappears after a player logs out. If the player was in combat,
+      # the remaining combat duration is added to the delay as well.
+      duration: 10
+      # The entity type of the NPC. Can be any living entity type from:
+      # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+      entity-type: VILLAGER
+      # If the dummy NPC should have as much hp as the player had.
+      copy-player-health: true
+      # The health of the dummy NPC, if not copying the player's health. Min: 1, Max: inf.
+      health: 1
+      # The period in minutes to save all players that were killed while offline.
+      #
+      # Only useful in case of crashes.
+      killed-players-save-period: 10.0
+      # The time that has to have passed in days (IRL) before players are removed from the list of killed players.
+      #
+      # This allows them to log back in after that time has passed as if they did not die, even though someone killed
+      # their dummy NPC and got copies of their items.
+      #
+      # This is useful (in extreme cases) if the server never resets and you think that the list might become too long
+      # and possibly affect performance in the long run.
+      #
+      # A value <= 0 disables the feature completely.
+      killed-players-timeout: 30.0
+
+
+# If the item cooldown module of this plugin should be enabled.
+item-cooldowns-enabled: false
+# Item cooldowns (any item namespaced ID from https://minecraft.gamepedia.com/Java_Edition_data_values can be added to
+# the list).
+#
+# Can be of type: CONSUME (e.g. apple), LAUNCH (e.g. splash potion) or INTERACT (right click).
+#
+# "Title" is what is displayed on the scoreboard and all items with the same title will share cooldown.
+# "potion", "splash_potion" and "lingering_potion" are all separate but can share cooldown by making them share title.
+#
+# Specific potion effect types can be defined by adding a PotionEffectType from
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html within braces after the item name
+# (e.g. potion{INVISIBILITY}). To specify extended/upgraded potions you can add "EXTENDED" or "UPGRADED" after the
+# effect type and a comma (e.g. splash_potion{HEAL,UPGRADED}).
+#
+# The cooldown can be split into world specific cooldowns by adding the world names as children with their own values
+# like shown below (absent worlds will have 0 cooldown by default):
+# cooldown:
+#   world: 10
+#   world_nether: 20
+#   world_the_end: -1
+#
+# If the cooldown is set to a negative number (e.g. -1), the item cannot be used.
+item-cooldown:
+#  ender_pearl:
+#    cooldown:
+#      world: 30
+#      world_nether: 3
+#    type: LAUNCH
+#    title: "&5Pearl: &d"
+#  golden_apple:
+#    cooldown:
+#      world: 300
+#      world_nether: -1
+#    type: CONSUME
+#    title: "&6Gapple: &e"
+#  splash_potion{HEAL,UPGRADED}:
+#    cooldown: 10
+#    type: LAUNCH
+#    title: "&4Splash Health: &c"
+
+
+# Modified potion effect durations in seconds (does not work for custom potions).
+#
+# PotionEffectTypes that can be added to the list:
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+#
+# To specify extended/upgraded potions you can add "EXTENDED" or "UPGRADED" after the
+# effect type within braces (e.g. INVISIBILITY{EXTENDED}).
+potion-duration:
+  #REGENERATION:            45 # 9 hearts
+  #REGENERATION{EXTENDED}:  90 # 18 hearts
+  #REGENERATION{UPGRADED}:  22 # 9 hearts
+
+# Chance of each potion of regeneration tick to heal (also affects Suspicious Stew and Golden Apple).
+# A value of 0.8 would mean an average total heal of 80% of the normal amount.
+# (Vanilla: 1)
+potion-health-regen-tick-success-rate: 1
+
+# Factor to modify instant health potion values with.
+potion-instant-health-modifier: 1
+# Max value instant health potions can heal.
+potion-instant-health-max: 8
+
+
+# Multipliers (0-1) for entity item drop rates (default: 1).
+#
+# The multiplier represents the chance that all drops are NOT removed. A drop rate multiplier of 0.2 means that
+# 80% of the time, the entity death event will not attempt to drop anything.
+#
+# Any entity namespaced ID from https://minecraft.gamepedia.com/Java_Edition_data_values#Entities
+# can be used.
+item-drop-rate-multiplier:
+  # Default multiplier.
+  default: 1
+  # Entity-specific multipliers.
+  entity:
+    ghast: 1
+  # Default multiplier if spawned by spawner.
+  spawner-default: 1
+  # Entity-specific multipliers if spawned by spawner.
+  spawner-entity:
+    #blaze: 0.33
+    #creeper: 0.33
+    #enderman: 0.33
+
+# Multipliers (>0) for entity XP drops (default: 1).
+#
+# A multiplier of 2.5 means that the entity death event will drop 150% more XP than normal.
+#
+# Any entity namespaced ID from https://minecraft.gamepedia.com/Java_Edition_data_values#Entities
+# can be used.
+xp-drop-multiplier:
+  # Default multiplier.
+  default: 1
+  # Entity-specific multipliers.
+  entity:
+    #ghast: 20
+    #wither_skeleton: 10
+    #zombie_pigman: 5
+  # Default multiplier if spawned by spawner.
+  spawner-default: 1
+  # Entity-specific multipliers if spawned by spawner.
+  spawner-entity:
+    #blaze: 0.1
+    #creeper: 0.1
+    #enderman: 0.1
+
+# Multipliers for the XP yield of mining blocks.
+#
+# Any block namespaced ID from https://minecraft.gamepedia.com/Java_Edition_data_values#Blocks
+# can be used, but it would only make sense for blocks that drop XP (usually ores).
+mining-xp-drop-multiplier:
+  # Default multiplier.
+  default: 1
+  # Block-specific multipliers.
+  block:
+    nether_quartz_ore: 1
+
+# Multipliers for the XP yield of other sources
+other-xp-multipliers:
+  breeding: 1
+  fishing: 1
+  furnace: 1
+
+# Multipliers for durability damage on tools and armor
+durability-damage-multiplier:
+  # Default multiplier.
+  default: 1
+  # Item-specific multipliers.
+  item:
+    #wooden_pickaxe:     20
+    #shield:             2
+    #diamond_helmet:     2
+    #diamond_chestplate: 2
+    #diamond_leggings:   2
+    #diamond_boots:      2
+    #iron_helmet:        2
+    #iron_chestplate:    2
+    #iron_leggings:      2
+    #iron_boots:         2
+
+
+# If ender pearls should teleport the thrower through open fence gates.
+# (Vanilla: false)
+pearl-through-gate: false
+
+# If ender pearls should not deal damage to the user.
+# (Vanilla: false)
+pearl-damage-disabled: false
+
+# How many brewing batches one blaze powder can fuel.
+# (Vanilla: 20)
+brewing-blaze-powder-fuel-power: 20
+
+
+# List of items that cannot be crafted.
+uncraftable:
+  #- golden_carrot
+
+# List of potions that cannot be brewed.
+#
+# PotionEffectTypes that can be added to the list:
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+#
+# To specify extended/upgraded potions you can add "EXTENDED" or "UPGRADED" after the
+# effect type within braces (e.g. HARM{UPGRADED}).
+# Splash/lingering potions can be specified with {SPLASH} or {LINGERING}.
+unbrewable:
+  #- WEAKNESS{SPLASH}
+  #- INVISIBILITY
+  #- HARM{UPGRADED}
+
+# Enchantment level limits when using enchantment tables and anvils.
+#
+# Values set to 0 prevents the enchantment from being applied at all.
+enchantment-limits:
+  #sharpness: 1
+  #protection: 2
+
+
+# If the scoreboard should be used by this plugin. This will overwrite the display of any other scoreboard.
+# You need to disable this if, for example, you want to use the scoreboard to display players' health.
+use-scoreboard: true
+# The score to associate the specific category with on the scoreboard. Used for sorting purposes
+# (higher scores are displayed above).
+scoreboard-score:
+  combat-timer: 1
+  item-cooldowns: 0
