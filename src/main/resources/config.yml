@@ -154,7 +154,7 @@ xp-drop-multiplier:
   entity:
     #ghast: 20
     #wither_skeleton: 10
-    #zombie_pigman: 5
+    #zombified_piglin: 2
   # Default multiplier if spawned by spawner.
   spawner-default: 1
   # Entity-specific multipliers if spawned by spawner.
@@ -186,16 +186,7 @@ durability-damage-multiplier:
   default: 1
   # Item-specific multipliers.
   item:
-    #wooden_pickaxe:     20
-    #shield:             2
-    #diamond_helmet:     2
-    #diamond_chestplate: 2
-    #diamond_leggings:   2
-    #diamond_boots:      2
-    #iron_helmet:        2
-    #iron_chestplate:    2
-    #iron_leggings:      2
-    #iron_boots:         2
+    #shield: 2
 
 
 # If ender pearls should teleport the thrower through open fence gates.
