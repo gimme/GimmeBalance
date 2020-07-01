@@ -1,11 +1,10 @@
 name: ${project.name}
 version: ${project.version}
 main: ${project.groupId}.${project.artifactId}
-api-version: 1.15
+api-version: 1.13
 authors: [Gimme]
 description: ${project.description}
-depend: [GimmeCore]
-softdepend: [ProtocolLib, EssentialsXSpawn, Vault]
+softdepend: [GimmeCore, ProtocolLib, EssentialsXSpawn, Vault]
 
 commands:
   logout:

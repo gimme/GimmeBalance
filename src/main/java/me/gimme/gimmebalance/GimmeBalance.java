@@ -44,7 +44,7 @@ public final class GimmeBalance extends JavaPlugin {
 
         combatLogNpcEnabled = getConfig().getBoolean(Config.COMBAT_LOG_NPC_ENABLED.getPath());
 
-        gimmeCoreHook = new GimmeCoreHook(getServer().getPluginManager());
+        gimmeCoreHook = new GimmeCoreHook(this);
         essentialsXSpawnHook = new EssentialsXSpawnHook(this);
         languageManager = new LanguageManager(this);
         timerScoreboardManager = new TimerScoreboardManager(this, languageManager.get(Message.HEADER_TIMERS_SCOREBOARD).toString());

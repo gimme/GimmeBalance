@@ -6,7 +6,7 @@
 
     <groupId>me.gimme.gimmebalance</groupId>
     <artifactId>GimmeBalance</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -93,7 +93,7 @@
         <dependency>
             <groupId>me.gimme.gimmecore</groupId>
             <artifactId>GimmeCore</artifactId>
-            <version>1.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>net.ess3</groupId>
